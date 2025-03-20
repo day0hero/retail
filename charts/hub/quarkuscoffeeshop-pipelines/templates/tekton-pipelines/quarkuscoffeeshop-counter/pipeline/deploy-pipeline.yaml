@@ -37,7 +37,7 @@ spec:
         - name: deleteExisting
           value: 'true'
       taskRef:
-        kind: ClusterTask
+        kind: Task
         name: git-clone
       workspaces:
         - name: output
@@ -75,7 +75,7 @@ spec:
       runAfter:
         - maven-run
       taskRef:
-        kind: ClusterTask
+        kind: Task
         name: buildah
       workspaces:
         - name: source
@@ -88,7 +88,7 @@ spec:
       runAfter:
         - build-java-app-image
       taskRef:
-        kind: ClusterTask
+        kind: Task
         name: openshift-client
     - name: push-quarkuscoffeeshop-counter-image-to-quay
       params:
@@ -109,7 +109,7 @@ spec:
       runAfter:
         - push-quarkuscoffeeshop-counter-image-to-quay
       taskRef:
-        kind: ClusterTask
+        kind: Task
         name: openshift-client
   workspaces:
     - name: shared-workspace
