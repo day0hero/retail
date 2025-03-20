@@ -9,12 +9,12 @@ DELAY=5
 ATTEMPT=1
 
 while [ ${ATTEMPT} -le ${MAX_ATTEMPTS} ]; do
-    OUT=$(oc get clustertasks 2>/dev/null | wc -l)
+    OUT=$(oc get tasks 2>/dev/null | wc -l)
     if [ ${OUT} -gt 0 ]; then
-        echo "ClusterTasks found"
+        echo "Tasks found"
         break
     else
-        echo "ClusterTasks not found yet"
+        echo "Tasks not found yet"
         if [ ${ATTEMPT} -ge ${MAX_ATTEMPTS} ]; then
             echo "Max attempts reached. Existing."
         fi
